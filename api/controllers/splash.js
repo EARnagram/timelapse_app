@@ -1,5 +1,5 @@
 var welcome = function(req, res, next) {
-  res.render('pages/welcome');
+  res.json({msg: "welcome to API timelapse. Woop Woop! Family."});
 };
 
 module.exports = {

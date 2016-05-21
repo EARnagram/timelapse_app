@@ -1,24 +1,24 @@
 // Require resource's model(s).
-var User = require("../models/user");
+var TimeLapse = require("../models/time_lapse");
 
 var index = function(req, res, next){
-  User.find({}, function(err, users) {
+  TimeLapse.find({}, function(err, tLapses) {
     if (err) {
       res.json({message: err});
     } else {
-      res.render('users/index', {users: users});
+      res.json({timeLapses: tLapses, msg: "You've hit the timelapse index."});
     }
   });
 };
 
 var show = function(req, res, next){
-  User.findById(req.params.id, function(err, user) {
+  TimeLapse.findById(req.params.id, function(err, timeLapse) {
     if (err) {
-      res.json({message: 'Could not find user because ' + err});
-    } else if (!user) {
-      res.json({message: 'No user with this id.'});
+      res.json({message: 'Could not find timeLapse because ' + err});
+    } else if (!timeLapse) {
+      res.json({message: 'No timeLapse with this id.'});
     } else {
-      res.render('users/show', {user: user});
+      res.json({timeLapse: timeLapse});
     }
   });
 };

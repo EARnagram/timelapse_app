@@ -9,7 +9,7 @@ var tLapseController = require('../controllers/time_lapses');
 router.get('/', splashController.welcome);
 
 // tLapse resource paths:
-router.get('/timelapse',     tLapseController.index);
-router.get('/timelapse/:id', tLapseController.show);
+router.get('/timelapses',     tLapseController.index);
+router.get('/timelapses/:id', tLapseController.show);
 
 module.exports = router;

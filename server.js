@@ -7,9 +7,9 @@ var debug        = require('debug')('app:http');
 var cookieParser = require('cookie-parser');
 
 // Load local libraries.
-var env      = require('./config/environment'),
-    mongoose = require('./config/database'),
-    routes   = require('./config/routes');
+var env      = require('./api/config/environment'),
+    mongoose = require('./api/config/database'),
+    routes   = require('./api/config/routes');
 
 // Instantiate a server application.
 var app = express();
@@ -18,8 +18,6 @@ var app = express();
 app.set('title', env.TITLE);
 app.set('safe-title', env.SAFE_TITLE);
 // EJS view engine config
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'ejs');
 
 // Create local variables for use thoughout the application.
 app.locals.title = app.get('title');
@@ -57,7 +55,7 @@ app.use(function(err, req, res, next) {
   // In development, the error handler will print stacktrace.
   err = (app.get('env') === 'development') ? err : {};
   res.status(err.status || 500);
-  res.render('error', {
+  res.json({
     message: err.message,
     error: err
   });
