@@ -19,6 +19,13 @@ app.set('title', env.TITLE);
 app.set('safe-title', env.SAFE_TITLE);
 // EJS view engine config
 
+// Enable CORS
+app.use(function(req, res, next) {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST');
+  next();
+});
+
 // Create local variables for use thoughout the application.
 app.locals.title = app.get('title');
 
