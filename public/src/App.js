@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
+import TimelapseListContainer from './containers/TimelapseListContainer';
 
 require('./styles/app.scss');
 export default class App extends Component {
   constructor(props) {
     super(props);
   }
-  
+
   render() {
     return (
-      <h1>Hello, world.</h1>;
+      <TimelapseListContainer header="Timelapse List" />
     );
   }
 }
