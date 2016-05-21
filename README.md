@@ -2,6 +2,7 @@
 
 Go with Redux.
 
+
 ## Redux Architecture Notes
 
 Store - similar to angular services, handles state and data
