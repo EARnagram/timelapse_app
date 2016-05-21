@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import 'whatwg-fetch';
 import TimelapseList from '../components/TimelapseList';
 
 class TimelapseListContainer extends Component {
@@ -6,29 +7,29 @@ class TimelapseListContainer extends Component {
     super(props);
 
     this.state = {
-      timelapses: [
-        {
-          title: 'picture',
-          location: 'CA',
-          url: 'google.com'
-        },
-        {
-          title: 'picture',
-          location: 'CA',
-          url: 'google.com'
-        },
-        {
-          title: 'picture',
-          location: 'CA',
-          url: 'google.com'
-        }
-      ]
-    }
+      timelapses: []
+    };
+  }
+
+  componentDidMount() {
+    this.fetchTimelapses();
+  }
+
+  fetchTimelapses() {
+    fetch('http://localhost:3000/timelapses')
+      .then(data => {
+        return data.json();
+      })
+      .then(json => {
+        console.log(json);
+        this.setState({
+          timelapses: json.timeLapses
+        });  
+      });
   }
 
   render() {
     return <TimelapseList
-      header="Timelapse List"
       timelapses={this.state.timelapses}
     />
   }

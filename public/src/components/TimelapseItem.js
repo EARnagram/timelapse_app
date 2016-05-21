@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+require('../styles/timelapse-item.scss');
 
 class TimelapseItem extends Component {
   constructor(props) {
@@ -7,10 +8,14 @@ class TimelapseItem extends Component {
 
   render() {
     return (
-      <div className="timelapse__list__item">
-        <h1>{this.props.title}</h1>
-        <p>{this.props.location}</p>
-        <p>{this.props.url}</p>
+      <div className="timelapse__item">
+        <h1 className="timelapse__title">{this.props.name}</h1>
+        <p className="timelapse__location">{this.props.latlon}</p>
+        <img
+          src={this.props.url}
+          alt={this.props.url}
+          className="timelapse__image"
+        />
       </div>
     );
   }

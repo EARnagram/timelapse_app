@@ -9,7 +9,10 @@ export default class App extends Component {
 
   render() {
     return (
-      <TimelapseListContainer header="Timelapse List" />
+      <div>
+        <h1>Timelapses</h1>
+        <TimelapseListContainer header="Timelapse List" />
+      </div>
     );
   }
 }
