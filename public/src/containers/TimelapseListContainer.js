@@ -1,38 +1,36 @@
 import React, { Component } from 'react';
-import 'whatwg-fetch';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import { fetchTimelapses } from '../actions/timelapseActions';
+
 import TimelapseList from '../components/TimelapseList';
 
 class TimelapseListContainer extends Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-      timelapses: []
-    };
   }
 
   componentDidMount() {
-    this.fetchTimelapses();
-  }
-
-  fetchTimelapses() {
-    fetch('http://localhost:3000/timelapses')
-      .then(data => {
-        return data.json();
-      })
-      .then(json => {
-        console.log(json);
-        this.setState({
-          timelapses: json.timeLapses
-        });  
-      });
+    this.props.fetchTimelapses();
   }
 
   render() {
     return <TimelapseList
-      timelapses={this.state.timelapses}
+      timelapses={this.props.timelapses}
     />
   }
 }
 
-export default TimelapseListContainer;
+const mapStateToProps = state => {
+  return {
+    timelapses: state.timelapses.timelapses
+  }
+};
+
+const mapDispatchToProps = dispatch => {
+  return bindActionCreators({
+    fetchTimelapses
+  }, dispatch);
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(TimelapseListContainer);

@@ -19,12 +19,11 @@ class TimelapseList extends Component {
   }
 
   render() {
-    console.log(this.props);
     return (
       <div className="timelapse__list">
         {this.renderTimelapseItems()}
       </div>
-    )
+    );
   }
 }
 
