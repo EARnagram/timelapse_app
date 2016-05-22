@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import TimelapseItem from './TimelapseItem';
-
 require('../styles/timelapse-list.scss');
+
 class TimelapseList extends Component {
   constructor(props) {
     super(props);

@@ -12,9 +12,9 @@ class TimelapseItem extends Component {
         <h1 className="timelapse__title">{this.props.name}</h1>
         <p className="timelapse__location">{this.props.latlon}</p>
         <img
-          src={this.props.url}
-          alt={this.props.url}
           className="timelapse__image"
+          src={this.props.url}
+          alt={this.props.name}
         />
       </div>
     );

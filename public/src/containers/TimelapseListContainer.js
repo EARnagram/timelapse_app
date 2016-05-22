@@ -15,9 +15,11 @@ class TimelapseListContainer extends Component {
   }
 
   render() {
-    return <TimelapseList
-      timelapses={this.props.timelapses}
-    />
+    return (
+      <TimelapseList
+        timelapses={this.props.timelapses}
+      />
+    );
   }
 }
 

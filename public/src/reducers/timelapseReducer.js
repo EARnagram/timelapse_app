@@ -10,7 +10,7 @@ const timelapseReducer = (state = initialState, action) => {
         timelapses: action.timelapses,
         fetching: false
       });
-    case 'REQUEST_TIMELPASES':
+    case 'REQUEST_TIMELAPSES':
       return Object.assign({}, state, {
         fetching: true
       });

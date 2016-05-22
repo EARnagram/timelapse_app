@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Navbar from './components/Navbar';
 import TimelapseListContainer from './containers/TimelapseListContainer';
 
 require('./styles/app.scss');
@@ -9,9 +10,9 @@ export default class App extends Component {
 
   render() {
     return (
-      <div>
-        <h1>Timelapses</h1>
-        <TimelapseListContainer header="Timelapse List" />
+      <div className="app">
+        <Navbar />
+        {this.props.children}
       </div>
     );
   }

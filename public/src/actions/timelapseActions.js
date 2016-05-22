@@ -1,5 +1,11 @@
 import 'whatwg-fetch';
 
+export function requestTimelapses() {
+  return {
+    type: 'REQUEST_TIMELAPSES'
+  }
+}
+
 export function receiveTimelapses(timelapses) {
   return {
     type: 'RECEIVE_TIMELAPSES',
@@ -9,6 +15,7 @@ export function receiveTimelapses(timelapses) {
 
 export function fetchTimelapses() {
   return (dispatch, getState) => {
+    dispatch(requestTimelapses());
     fetch('http://localhost:3000/timelapses')
       .then(data => {
         return data.json();
